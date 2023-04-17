@@ -9,9 +9,7 @@ const currentUserName = getUserName();
 console.log('Welcome to the Brain Games!');
 console.log(`Hello, ${currentUserName}!`);
 
-const getRandom = () => {
-  return Math.floor(Math.random() * 10);;
-};
+const getRandom = () => Math.floor(Math.random() * 10);
 
 const isEven = (number) => {
   if (number % 2 === 0) {
