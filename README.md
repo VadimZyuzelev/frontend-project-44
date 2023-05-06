@@ -6,4 +6,4 @@
 ### Игры разума. 6 шаг
 [![asciicast](https://asciinema.org/a/yYrJXC8bqVjs75WD4kiY4x2h7.svg)](https://asciinema.org/a/yYrJXC8bqVjs75WD4kiY4x2h7)
 ### Игры разума. 7 шаг
-[![asciicast](https://asciinema.org/a/RhWKeH0IGdRSyu0pbhCsFFc7D.svg)](https://asciinema.org/a/RhWKeH0IGdRSyu0pbhCsFFc7D)
+[![asciicast](https://asciinema.org/a/lYNvveylygMfibKP4GDvqI2e2.svg)](https://asciinema.org/a/lYNvveylygMfibKP4GDvqI2e2)
