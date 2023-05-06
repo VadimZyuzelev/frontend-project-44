@@ -1,16 +1,16 @@
 const brainGCD = (number, numberTwo) => {
-  let num1 = number;
-  let num2 = numberTwo;
+  let numberFirst = number;
+  let numberSecond = numberTwo;
 
-  while (num1 !== 0 && num2 !== 0) {
-    if (num1 > num2) {
-      num1 %= num2;
+  while ((numberFirst !== 0) && (numberSecond !== 0)) {
+    if (numberFirst > numberSecond) {
+      numberFirst %= numberSecond;
     } else {
-      num2 %= num1;
+      numberSecond %= numberFirst;
     }
   }
 
-  return num1 !== 0 ? num1 : num2;
+  return numberFirst !== 0 ? numberFirst : numberSecond;
 };
 
 export default brainGCD;
