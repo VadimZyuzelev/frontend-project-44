@@ -1,9 +1,12 @@
+/* eslint-disable object-curly-newline */
 import readlineSync from 'readline-sync';
 import getNameUser from './cli.js';
 import brainCalc from './games/brain-calc.js';
 import brainEven from './games/brain-even.js';
 import brainGCD from './games/brain-gcd.js';
+import brainProgression from './games/brain-progression.js';
 
+// Количество верных ответов в каждой игре
 const correctAnswerCount = 3;
 
 const greeting = (userName) => {
@@ -11,6 +14,7 @@ const greeting = (userName) => {
   console.log(`Hello, ${userName}!`);
 };
 
+// Сделать от первого числа + 10 //Шаг от 1 до первого числа
 const getRandomNumber = () => Math.floor(Math.random() * 20);
 
 const getRandomOperation = () => {
@@ -137,4 +141,48 @@ const getBrainGCD = () => {
   }
   console.log(getMessageUser(statusAnswer, currentUserName));
 };
-export { getBrainCalc, getBrainEven, getBrainGCD };
+
+const getBrainProgression = () => {
+  let statusAnswer;
+
+  const currentUserName = getNameUser();
+  greeting(currentUserName);
+
+  console.log('What number is missing in the progression?');
+  for (let i = 0; i < correctAnswerCount; i += 1) {
+    // Первое число в прогрессии
+    const numberFirst = getRandomNumber();
+
+    // Шаг прогресии
+    let stepProgression = getRandomNumber();
+
+    // Количество чисел в прогрессии
+    let numberCount = getRandomNumber();
+
+    while (numberCount < 5) {
+      numberCount = getRandomNumber();
+    }
+
+    while (stepProgression <= 0) {
+      stepProgression = getRandomNumber();
+    }
+
+    const array = brainProgression(numberFirst, numberCount, stepProgression);
+    const questionArray = array[0].join(' ');
+
+    setQuestion(questionArray);
+
+    const userAnswer = getAnswer();
+    const correctAnswer = array[1];
+
+    statusAnswer = checkAnswer(userAnswer, correctAnswer);
+    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
+
+    if (statusAnswer === false) {
+      break;
+    }
+  }
+  console.log(getMessageUser(statusAnswer, currentUserName));
+};
+
+export { getBrainCalc, getBrainEven, getBrainGCD, getBrainProgression };
