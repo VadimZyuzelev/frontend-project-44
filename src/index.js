@@ -5,6 +5,7 @@ import brainCalc from './games/brain-calc.js';
 import brainEven from './games/brain-even.js';
 import brainGCD from './games/brain-gcd.js';
 import brainProgression from './games/brain-progression.js';
+import brainPrime from './games/brain-prime.js';
 
 // Количество верных ответов в каждой игре
 const correctAnswerCount = 3;
@@ -185,4 +186,39 @@ const getBrainProgression = () => {
   console.log(getMessageUser(statusAnswer, currentUserName));
 };
 
-export { getBrainCalc, getBrainEven, getBrainGCD, getBrainProgression };
+const getBrainPrime = () => {
+  let statusAnswer;
+  let correctAnswer;
+
+  const currentUserName = getNameUser();
+  greeting(currentUserName);
+
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+
+  for (let i = 0; i < correctAnswerCount; i += 1) {
+    const number = getRandomNumber();
+
+    const questionArray = [number];
+    setQuestion(questionArray);
+
+    const userAnswer = getAnswer();
+    const functionAnswer = brainPrime(number);
+
+    if (functionAnswer === true) {
+      correctAnswer = 'yes';
+    } else {
+      correctAnswer = 'no';
+    }
+
+    statusAnswer = checkAnswer(userAnswer, correctAnswer);
+    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
+
+    if (statusAnswer === false) {
+      break;
+    }
+  }
+
+  console.log(getMessageUser(statusAnswer, currentUserName));
+};
+
+export { getBrainCalc, getBrainEven, getBrainGCD, getBrainProgression, getBrainPrime };
