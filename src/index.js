@@ -151,13 +151,8 @@ const getBrainProgression = () => {
 
   console.log('What number is missing in the progression?');
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    // Первое число в прогрессии
     const numberFirst = getRandomNumber();
-
-    // Шаг прогресии
     let stepProgression = getRandomNumber();
-
-    // Количество чисел в прогрессии
     let numberCount = getRandomNumber();
 
     while (numberCount < 5) {
