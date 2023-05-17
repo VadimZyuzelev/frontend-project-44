@@ -157,12 +157,9 @@ const getBrainProgression = () => {
     stepProgression = getRandomNumber();
     numberCount = getRandomNumber();
 
-    while (numberCount < 5) {
-      numberCount = getRandomNumber();
-    }
-
-    while (stepProgression <= 0) {
-      stepProgression = getRandomNumber();
+    if (numberCount < 5 || stepProgression <= 0) {
+      i = 0;
+      break;
     }
 
     const array = brainProgression(numberFirst, numberCount, stepProgression);
