@@ -180,7 +180,6 @@ const getBrainProgression = () => {
 
 const getBrainPrime = () => {
   let statusAnswer;
-  let correctAnswer;
 
   const currentUserName = getNameUser();
   greeting(currentUserName);
@@ -188,6 +187,7 @@ const getBrainPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   for (let i = 0; i < correctAnswerCount; i += 1) {
+    let correctAnswer = 'no';
     const number = getRandomNumber();
 
     const questionArray = [number];
@@ -198,8 +198,6 @@ const getBrainPrime = () => {
 
     if (functionAnswer === true) {
       correctAnswer = 'yes';
-    } else {
-      correctAnswer = 'no';
     }
 
     statusAnswer = checkAnswer(userAnswer, correctAnswer);
@@ -209,7 +207,6 @@ const getBrainPrime = () => {
       break;
     }
   }
-
   console.log(getMessageUser(statusAnswer, currentUserName));
 };
 
