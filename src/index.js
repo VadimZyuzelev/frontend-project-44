@@ -50,7 +50,7 @@ const getMessageUser = (statusAnswer, userName) => {
 const setQuestion = (questionArray) => {
   const resultArray = questionArray.join(' ');
   console.log(`Question: ${resultArray}`);
-}
+};
 
 const getAnswer = () => {
   const answer = readlineSync.question('Your answer: ');
@@ -128,9 +128,7 @@ const getBrainGCD = () => {
     const number = getRandomNumber();
     const numberTwo = getRandomNumber();
 
-    const array = [];
-    array.push(number, numberTwo);
-    const questionArray = array.join(' ');
+    const questionArray = [number, numberTwo];
     setQuestion(questionArray);
 
     const userAnswer = getAnswer();
