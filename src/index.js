@@ -47,7 +47,10 @@ const getMessageUser = (statusAnswer, userName) => {
   return `Let's try again, ${userName}!`;
 };
 
-const setQuestion = (questionArray) => console.log(`Question: ${questionArray}`);
+const setQuestion = (questionArray) => {
+  const resultArray = questionArray.join(' ');
+  console.log(`Question: ${resultArray}`);
+}
 
 const getAnswer = () => {
   const answer = readlineSync.question('Your answer: ');
@@ -161,9 +164,7 @@ const getBrainProgression = () => {
     }
 
     const array = brainProgression(numberFirst, numberCount, stepProgression);
-    const questionArray = array[0].join(' ');
-
-    setQuestion(questionArray);
+    setQuestion(array[0]);
 
     const userAnswer = getAnswer();
     const correctAnswer = array[1];
