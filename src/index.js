@@ -145,8 +145,6 @@ const getBrainGCD = () => {
 
 const getBrainProgression = () => {
   let statusAnswer;
-  let stepProgression;
-  let numberCount;
 
   const currentUserName = getNameUser();
   greeting(currentUserName);
@@ -154,8 +152,8 @@ const getBrainProgression = () => {
   console.log('What number is missing in the progression?');
   for (let i = 0; i < correctAnswerCount; i += 1) {
     const numberFirst = getRandomNumber();
-    stepProgression = getRandomNumber();
-    numberCount = getRandomNumber();
+    const stepProgression = getRandomNumber();
+    const numberCount = getRandomNumber();
 
     if (numberCount < 5 || stepProgression <= 0) {
       i = 0;
