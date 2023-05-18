@@ -153,24 +153,25 @@ const getBrainProgression = () => {
   console.log('What number is missing in the progression?');
   for (let i = 0; i < correctAnswerCount; i += 1) {
     const numberFirst = getRandomNumber();
-    const stepProgression = getRandomNumber();
-    const numberCount = getRandomNumber();
+    let stepProgression = getRandomNumber();
+    let numberCount = getRandomNumber();
 
-    if (numberCount < 5 || stepProgression <= 0) {
-      i -= 1;
-    } else {
-      const array = brainProgression(numberFirst, numberCount, stepProgression);
-      setQuestion(array[0]);
+    while (numberCount < 5 || stepProgression <= 0) {
+      stepProgression = getRandomNumber();
+      numberCount = getRandomNumber();
+    }
 
-      const userAnswer = getAnswer();
-      const correctAnswer = array[1];
+    const array = brainProgression(numberFirst, numberCount, stepProgression);
+    setQuestion(array[0]);
 
-      statusAnswer = checkAnswer(userAnswer, correctAnswer);
-      console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
+    const userAnswer = getAnswer();
+    const correctAnswer = array[1];
 
-      if (statusAnswer === false) {
-        break;
-      }
+    statusAnswer = checkAnswer(userAnswer, correctAnswer);
+    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
+
+    if (statusAnswer === false) {
+      break;
     }
   }
   console.log(getMessageUser(statusAnswer, currentUserName));
