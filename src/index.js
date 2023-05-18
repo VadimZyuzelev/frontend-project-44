@@ -157,21 +157,20 @@ const getBrainProgression = () => {
     const numberCount = getRandomNumber();
 
     if (numberCount < 5 || stepProgression <= 0) {
-      i = 0;
-      break;
-    }
+      i -= 1;
+    } else {
+      const array = brainProgression(numberFirst, numberCount, stepProgression);
+      setQuestion(array[0]);
 
-    const array = brainProgression(numberFirst, numberCount, stepProgression);
-    setQuestion(array[0]);
+      const userAnswer = getAnswer();
+      const correctAnswer = array[1];
 
-    const userAnswer = getAnswer();
-    const correctAnswer = array[1];
+      statusAnswer = checkAnswer(userAnswer, correctAnswer);
+      console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
 
-    statusAnswer = checkAnswer(userAnswer, correctAnswer);
-    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
-
-    if (statusAnswer === false) {
-      break;
+      if (statusAnswer === false) {
+        break;
+      }
     }
   }
   console.log(getMessageUser(statusAnswer, currentUserName));
