@@ -1,17 +1,11 @@
-const brainGCD = (number, numberTwo) => {
-  let numberFirst = number;
-  let numberSecond = numberTwo;
+const brainGCD = (num, numSecond) => {
+  let numberFirst = num;
+  let numberSecond = numSecond;
 
-  if (numberFirst === 0 || numberSecond === 0) {
-    return 0;
-  }
-
-  while (numberFirst !== numberSecond) {
-    if (numberFirst > numberSecond) {
-      numberFirst -= numberSecond;
-    } else {
-      numberSecond -= numberFirst;
-    }
+  while (numberSecond) {
+    const temp = numberSecond;
+    numberSecond = numberFirst % numberSecond;
+    numberFirst = temp;
   }
 
   return numberFirst;
