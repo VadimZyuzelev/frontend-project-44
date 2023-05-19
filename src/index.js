@@ -124,8 +124,8 @@ const getBrainGCD = () => {
 
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    const number = getRandomNumber(0);
-    const numberTwo = getRandomNumber(0);
+    const number = getRandomNumber(1);
+    const numberTwo = getRandomNumber(1);
 
     const questionArray = [number, numberTwo];
     setQuestion(questionArray);
