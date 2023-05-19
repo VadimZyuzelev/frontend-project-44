@@ -15,8 +15,7 @@ const greeting = (userName) => {
   console.log(`Hello, ${userName}!`);
 };
 
-// Сделать от первого числа + 10 //Шаг от 1 до первого числа
-const getRandomNumber = () => Math.floor(Math.random() * 20);
+const getRandomNumber = (min) => Math.floor(Math.random() * (20 - min + 1)) + min;
 
 const getRandomOperation = () => {
   const array = ['+', '*', '-'];
@@ -152,14 +151,9 @@ const getBrainProgression = () => {
 
   console.log('What number is missing in the progression?');
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    const numberFirst = getRandomNumber();
-    let stepProgression = getRandomNumber();
-    let numberCount = getRandomNumber();
-
-    while (numberCount < 5 || stepProgression <= 0) {
-      stepProgression = getRandomNumber();
-      numberCount = getRandomNumber();
-    }
+    const numberFirst = getRandomNumber(0);
+    const stepProgression = getRandomNumber(2);
+    const numberCount = getRandomNumber(5);
 
     const array = brainProgression(numberFirst, numberCount, stepProgression);
     setQuestion(array[0]);
