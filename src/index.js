@@ -65,9 +65,9 @@ const getBrainCalc = () => {
   console.log('What is the result of the expression?');
 
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    const number = getRandomNumber();
-    const numberTwo = getRandomNumber();
-    const operation = getRandomOperation();
+    const number = getRandomNumber(0);
+    const numberTwo = getRandomNumber(0);
+    const operation = getRandomOperation(0);
 
     const array = [];
     array.push(number, operation, numberTwo);
@@ -97,7 +97,7 @@ const getBrainEven = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    const number = getRandomNumber();
+    const number = getRandomNumber(0);
 
     const questionArray = [number];
     setQuestion(questionArray);
@@ -124,8 +124,8 @@ const getBrainGCD = () => {
 
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    const number = getRandomNumber();
-    const numberTwo = getRandomNumber();
+    const number = getRandomNumber(0);
+    const numberTwo = getRandomNumber(0);
 
     const questionArray = [number, numberTwo];
     setQuestion(questionArray);
@@ -181,7 +181,7 @@ const getBrainPrime = () => {
 
   for (let i = 0; i < correctAnswerCount; i += 1) {
     let correctAnswer = 'no';
-    const number = getRandomNumber();
+    const number = getRandomNumber(0);
 
     const questionArray = [number];
     setQuestion(questionArray);
