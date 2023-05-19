@@ -9,3 +9,5 @@
 [![asciicast](https://asciinema.org/a/lYNvveylygMfibKP4GDvqI2e2.svg)](https://asciinema.org/a/lYNvveylygMfibKP4GDvqI2e2)
 ### Игры разума. 8 шаг
 [![asciicast](https://asciinema.org/a/wKqk733rlAxndybImRYjqPNLm.svg)](https://asciinema.org/a/wKqk733rlAxndybImRYjqPNLm)
+### Игры разума. 9 шаг
+[![asciicast](https://asciinema.org/a/DMnjijNpUGAQXLMHJ7mlxERJj.svg)](https://asciinema.org/a/DMnjijNpUGAQXLMHJ7mlxERJj)
