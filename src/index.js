@@ -69,10 +69,7 @@ const getBrainCalc = () => {
     const numberTwo = getRandomNumber(0);
     const operation = getRandomOperation(0);
 
-    const array = [];
-    array.push(number, operation, numberTwo);
-    const questionArray = array.join(' ');
-
+    const questionArray = [number, operation, numberTwo];
     setQuestion(questionArray);
 
     const userAnswer = getAnswer();
