@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "0.1.0",
   "type": "module",
-  "description": "[![Actions Status](https://github.com/VadimZyuzelev/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/VadimZyuzelev/frontend-project-44/actions)",
+  "description": "Проект 'Игры Разума'. Проект в включает в себя: простейший калькулятор; игра 'Проверка на четность'; игра 'НОД'; игра 'Арифмитическая прогрессия'; игра 'Простое ли число?'",
   "main": "index.js",
   "bin": {
     "brain-games": "bin/brain-games.js",
