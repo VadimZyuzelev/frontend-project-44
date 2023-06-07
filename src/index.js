@@ -6,6 +6,7 @@ import brainEven from './games/brain-even.js';
 import brainGCD from './games/brain-gcd.js';
 import brainProgression from './games/brain-progression.js';
 import brainPrime from './games/brain-prime.js';
+import getRandomNumber from './utils.js';
 
 // Количество верных ответов в каждой игре
 const correctAnswerCount = 3;
@@ -14,8 +15,6 @@ const greeting = (userName) => {
   console.log('Welcome to the Brain Games!');
   console.log(`Hello, ${userName}!`);
 };
-
-const getRandomNumber = (min) => Math.floor(Math.random() * (20 - min + 1)) + min;
 
 const getRandomOperation = () => {
   const array = ['+', '*', '-'];
@@ -65,9 +64,9 @@ const getBrainCalc = () => {
   console.log('What is the result of the expression?');
 
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    const number = getRandomNumber(0);
-    const numberTwo = getRandomNumber(0);
-    const operation = getRandomOperation(0);
+    const number = getRandomNumber(0, 20);
+    const numberTwo = getRandomNumber(0, 30);
+    const operation = getRandomOperation(0, 10);
 
     const questionArray = [number, operation, numberTwo];
     setQuestion(questionArray);
@@ -94,7 +93,7 @@ const getBrainEven = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    const number = getRandomNumber(0);
+    const number = getRandomNumber(0, 30);
 
     const questionArray = [number];
     setQuestion(questionArray);
@@ -121,8 +120,8 @@ const getBrainGCD = () => {
 
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    const number = getRandomNumber(1);
-    const numberTwo = getRandomNumber(1);
+    const number = getRandomNumber(1, 30);
+    const numberTwo = getRandomNumber(1, 20);
 
     const questionArray = [number, numberTwo];
     setQuestion(questionArray);
@@ -148,9 +147,9 @@ const getBrainProgression = () => {
 
   console.log('What number is missing in the progression?');
   for (let i = 0; i < correctAnswerCount; i += 1) {
-    const numberFirst = getRandomNumber(0);
-    const stepProgression = getRandomNumber(2);
-    const numberCount = getRandomNumber(5);
+    const numberFirst = getRandomNumber(0, 30);
+    const stepProgression = getRandomNumber(2, 20);
+    const numberCount = getRandomNumber(5, 30);
 
     const array = brainProgression(numberFirst, numberCount, stepProgression);
     setQuestion(array[0]);
@@ -178,7 +177,7 @@ const getBrainPrime = () => {
 
   for (let i = 0; i < correctAnswerCount; i += 1) {
     let correctAnswer = 'no';
-    const number = getRandomNumber(0);
+    const number = getRandomNumber(0, 40);
 
     const questionArray = [number];
     setQuestion(questionArray);
