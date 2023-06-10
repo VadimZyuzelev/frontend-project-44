@@ -1,3 +1,8 @@
+const getRandomOperation = () => {
+  const array = ['+', '*', '-'];
+  return array[Math.floor(Math.random() * array.length)];
+};
+
 const brainCalc = (number, numberTwo, operation) => {
   if (operation === '+') {
     return number + numberTwo;
@@ -10,4 +15,4 @@ const brainCalc = (number, numberTwo, operation) => {
   return number - numberTwo;
 };
 
-export default brainCalc;
+export { getRandomOperation, brainCalc };

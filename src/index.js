@@ -1,7 +1,7 @@
 /* eslint-disable object-curly-newline */
 import readlineSync from 'readline-sync';
 import getNameUser from './cli.js';
-import brainCalc from './games/brain-calc.js';
+import { brainCalc, getRandomOperation } from './games/brain-calc.js';
 import brainEven from './games/brain-even.js';
 import brainGCD from './games/brain-gcd.js';
 import brainProgression from './games/brain-progression.js';
@@ -14,11 +14,6 @@ const correctAnswerCount = 3;
 const greeting = (userName) => {
   console.log('Welcome to the Brain Games!');
   console.log(`Hello, ${userName}!`);
-};
-
-const getRandomOperation = () => {
-  const array = ['+', '*', '-'];
-  return array[Math.floor(Math.random() * array.length)];
 };
 
 const checkAnswer = (userAnswer, correctAnswer) => {
@@ -66,7 +61,7 @@ const getBrainCalc = () => {
   for (let i = 0; i < correctAnswerCount; i += 1) {
     const number = getRandomNumber(0, 20);
     const numberTwo = getRandomNumber(0, 30);
-    const operation = getRandomOperation(0, 10);
+    const operation = getRandomOperation();
 
     const questionArray = [number, operation, numberTwo];
     setQuestion(questionArray);
