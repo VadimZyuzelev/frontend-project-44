@@ -50,35 +50,6 @@ const getAnswer = () => {
   return answer;
 };
 
-const getBrainCalc = () => {
-  let statusAnswer;
-
-  const currentUserName = getNameUser();
-  greeting(currentUserName);
-
-  console.log('What is the result of the expression?');
-
-  for (let i = 0; i < correctAnswerCount; i += 1) {
-    const number = getRandomNumber(0, 20);
-    const numberTwo = getRandomNumber(0, 30);
-    const operation = getRandomOperation();
-
-    const questionArray = [number, operation, numberTwo];
-    setQuestion(questionArray);
-
-    const userAnswer = getAnswer();
-    const correctAnswer = brainCalc(number, numberTwo, operation);
-
-    statusAnswer = checkAnswer(userAnswer, correctAnswer);
-    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
-
-    if (statusAnswer === false) {
-      break;
-    }
-  }
-  console.log(getMessageUser(statusAnswer, currentUserName));
-};
-
 const getBrainEven = () => {
   let statusAnswer;
 
@@ -104,6 +75,37 @@ const getBrainEven = () => {
     }
   }
 
+  console.log(getMessageUser(statusAnswer, currentUserName));
+};
+
+const getBrainCalc = () => {
+  let statusAnswer;
+
+  const currentUserName = getNameUser();
+  greeting(currentUserName);
+
+  console.log('What is the result of the expression?');
+
+  runGame();
+
+  /*for (let i = 0; i < correctAnswerCount; i += 1) {
+    const number = getRandomNumber(0, 20);
+    const numberTwo = getRandomNumber(0, 30);
+    const operation = getRandomOperation();
+
+    const questionArray = [number, operation, numberTwo];
+    setQuestion(questionArray);
+
+    const userAnswer = getAnswer();
+    const correctAnswer = brainCalc(number, numberTwo, operation);
+
+    statusAnswer = checkAnswer(userAnswer, correctAnswer);
+    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
+
+    if (statusAnswer === false) {
+      break;
+    
+  }*/
   console.log(getMessageUser(statusAnswer, currentUserName));
 };
 
@@ -193,5 +195,16 @@ const getBrainPrime = () => {
   }
   console.log(getMessageUser(statusAnswer, currentUserName));
 };
+
+const runGame = () => {
+  let statusAnswer;
+
+  const currentUserName = getNameUser();
+  greeting(currentUserName);
+
+  for (let i = 0; i < correctAnswerCount; i += 1) {
+
+  }
+}
 
 export { getBrainCalc, getBrainEven, getBrainGCD, getBrainProgression, getBrainPrime };
