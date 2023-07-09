@@ -11,10 +11,10 @@ import getRandomNumber from './utils.js';
 // Количество верных ответов в каждой игре
 const correctAnswerCount = 3;
 
-const greeting = (userName) => {
+/*const greeting = (userName) => {
   console.log('Welcome to the Brain Games!');
   console.log(`Hello, ${userName}!`);
-};
+};*/
 
 const checkAnswer = (userAnswer, correctAnswer) => {
   if (userAnswer.toString() === correctAnswer.toString()) {
@@ -51,14 +51,31 @@ const getAnswer = () => {
 };
 
 const getBrainEven = () => {
-  let statusAnswer;
-
+  let resultGame = 0;
   const currentUserName = getNameUser();
-  greeting(currentUserName);
+
+  console.log('Welcome to the Brain Games!');
+  console.log(`Hello, ${currentUserName}!`);
 
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
   for (let i = 0; i < correctAnswerCount; i += 1) {
+    const number = getRandomNumber(0, 30);
+    const correctAnswer = brainEven(number);
+    resultGame = runGame(number, correctAnswer);
+
+    console.log(resultGame);
+
+    if (resultGame !== 'Correct!') {
+      break;
+    }
+  }
+
+  if (resultGame === 'Correct!') {
+    console.log(`Congratulations, ${currentUserName}!`);
+  } else {
+    console.log(`Let's try again, ${currentUserName}!`);
+  }
+  /*for (let i = 0; i < correctAnswerCount; i += 1) {
     const number = getRandomNumber(0, 30);
 
     const questionArray = [number];
@@ -73,22 +90,22 @@ const getBrainEven = () => {
     if (statusAnswer === false) {
       break;
     }
-  }
+  }*/
 
-  console.log(getMessageUser(statusAnswer, currentUserName));
+  //console.log(getMessageUser(statusAnswer, currentUserName));
 };
 
 const getBrainCalc = () => {
   let statusAnswer;
 
   const currentUserName = getNameUser();
-  greeting(currentUserName);
+  //greeting(currentUserName);
 
   console.log('What is the result of the expression?');
 
-  runGame();
+  //runGame();
 
-  /*for (let i = 0; i < correctAnswerCount; i += 1) {
+  for (let i = 0; i < correctAnswerCount; i += 1) {
     const number = getRandomNumber(0, 20);
     const numberTwo = getRandomNumber(0, 30);
     const operation = getRandomOperation();
@@ -104,8 +121,8 @@ const getBrainCalc = () => {
 
     if (statusAnswer === false) {
       break;
-    
-  }*/
+    }
+  };
   console.log(getMessageUser(statusAnswer, currentUserName));
 };
 
@@ -113,7 +130,7 @@ const getBrainGCD = () => {
   let statusAnswer;
 
   const currentUserName = getNameUser();
-  greeting(currentUserName);
+  //greeting(currentUserName);
 
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 0; i < correctAnswerCount; i += 1) {
@@ -196,15 +213,18 @@ const getBrainPrime = () => {
   console.log(getMessageUser(statusAnswer, currentUserName));
 };
 
-const runGame = () => {
-  let statusAnswer;
+//задать вопрос
+//получить ответ
+//сравнить ответ и т.д.
 
-  const currentUserName = getNameUser();
-  greeting(currentUserName);
+const runGame = (question, correctAnswer) => {
+  console.log(`Question: ${question}`);
+  const userAnswer = readlineSync.question('Your answer: ');
 
-  for (let i = 0; i < correctAnswerCount; i += 1) {
-
+  if (userAnswer.toString() === correctAnswer.toString()) {
+    return 'Correct!';
   }
-}
+  return `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`;
+};
 
 export { getBrainCalc, getBrainEven, getBrainGCD, getBrainProgression, getBrainPrime };
