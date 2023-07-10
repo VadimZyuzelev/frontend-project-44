@@ -16,39 +16,39 @@ const correctAnswerCount = 3;
   console.log(`Hello, ${userName}!`);
 };*/
 
-const checkAnswer = (userAnswer, correctAnswer) => {
+/*const checkAnswer = (userAnswer, correctAnswer) => {
   if (userAnswer.toString() === correctAnswer.toString()) {
     return true;
   }
 
   return false;
-};
+};*/
 
-const getMessageStatusAnswer = (statusAnswer, userAnswer, correctAnswer) => {
+/*const getMessageStatusAnswer = (statusAnswer, userAnswer, correctAnswer) => {
   if (statusAnswer === true) {
     return 'Correct!';
   }
 
   return `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`;
-};
+};*/
 
-const getMessageUser = (statusAnswer, userName) => {
+/*const getMessageUser = (statusAnswer, userName) => {
   if (statusAnswer === true) {
     return `Congratulations, ${userName}!`;
   }
 
   return `Let's try again, ${userName}!`;
-};
+};*/
 
-const setQuestion = (questionArray) => {
+/*const setQuestion = (questionArray) => {
   const resultArray = questionArray.join(' ');
   console.log(`Question: ${resultArray}`);
-};
+};*/
 
-const getAnswer = () => {
+/*const getAnswer = () => {
   const answer = readlineSync.question('Your answer: ');
   return answer;
-};
+};*/
 
 const getBrainEven = () => {
   let resultGame = 0;
@@ -58,7 +58,7 @@ const getBrainEven = () => {
   console.log(`Hello, ${currentUserName}!`);
 
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 0; i < correctAnswerCount; i += 1) {
+  for (let i = 1; i <= correctAnswerCount; i += 1) {
     const number = getRandomNumber(0, 30);
     const correctAnswer = brainEven(number);
     resultGame = runGame(number, correctAnswer);
@@ -69,104 +69,82 @@ const getBrainEven = () => {
       break;
     }
   }
-
-  if (resultGame === 'Correct!') {
-    console.log(`Congratulations, ${currentUserName}!`);
-  } else {
-    console.log(`Let's try again, ${currentUserName}!`);
-  }
-  /*for (let i = 0; i < correctAnswerCount; i += 1) {
-    const number = getRandomNumber(0, 30);
-
-    const questionArray = [number];
-    setQuestion(questionArray);
-
-    const userAnswer = getAnswer();
-    const correctAnswer = brainEven(number);
-
-    statusAnswer = checkAnswer(userAnswer, correctAnswer);
-    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
-
-    if (statusAnswer === false) {
-      break;
-    }
-  }*/
-
-  //console.log(getMessageUser(statusAnswer, currentUserName));
 };
 
 const getBrainCalc = () => {
-  let statusAnswer;
+  let resultGame = 0;
 
   const currentUserName = getNameUser();
-  //greeting(currentUserName);
+
+  console.log('Welcome to the Brain Games!');
+  console.log(`Hello, ${currentUserName}!`);
 
   console.log('What is the result of the expression?');
 
-  //runGame();
-
-  for (let i = 0; i < correctAnswerCount; i += 1) {
+  for (let i = 1; i <= correctAnswerCount; i += 1) {
     const number = getRandomNumber(0, 20);
     const numberTwo = getRandomNumber(0, 30);
     const operation = getRandomOperation();
 
     const questionArray = [number, operation, numberTwo];
-    setQuestion(questionArray);
 
-    const userAnswer = getAnswer();
     const correctAnswer = brainCalc(number, numberTwo, operation);
 
-    statusAnswer = checkAnswer(userAnswer, correctAnswer);
-    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
+    resultGame = runGame(questionArray, correctAnswer, i, currentUserName);
 
-    if (statusAnswer === false) {
+    console.log(resultGame);
+
+    if (resultGame !== 'Correct!') {
       break;
     }
-  };
-  console.log(getMessageUser(statusAnswer, currentUserName));
+  }
 };
 
 const getBrainGCD = () => {
-  let statusAnswer;
+  let resultGame = 0;
 
   const currentUserName = getNameUser();
-  //greeting(currentUserName);
 
   console.log('Find the greatest common divisor of given numbers.');
-  for (let i = 0; i < correctAnswerCount; i += 1) {
+  for (let i = 1; i <= correctAnswerCount; i += 1) {
     const number = getRandomNumber(1, 30);
     const numberTwo = getRandomNumber(1, 20);
 
     const questionArray = [number, numberTwo];
-    setQuestion(questionArray);
 
-    const userAnswer = getAnswer();
     const correctAnswer = brainGCD(number, numberTwo);
 
-    statusAnswer = checkAnswer(userAnswer, correctAnswer);
-    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
+    resultGame = runGame(questionArray, correctAnswer, i, currentUserName);
 
-    if (statusAnswer === false) {
+    console.log(resultGame);
+
+    if (resultGame !== 'Correct!') {
       break;
     }
   }
-  console.log(getMessageUser(statusAnswer, currentUserName));
 };
 
 const getBrainProgression = () => {
-  let statusAnswer;
+  let resultGame = 0;
 
   const currentUserName = getNameUser();
-  greeting(currentUserName);
 
   console.log('What number is missing in the progression?');
-  for (let i = 0; i < correctAnswerCount; i += 1) {
+  for (let i = 1; i <= correctAnswerCount; i += 1) {
     const numberFirst = getRandomNumber(0, 30);
     const stepProgression = getRandomNumber(2, 20);
     const numberCount = getRandomNumber(5, 30);
 
-    const array = brainProgression(numberFirst, numberCount, stepProgression);
-    setQuestion(array[0]);
+    const correctAnswer = brainProgression(numberFirst, numberCount, stepProgression);
+
+    resultGame = runGame(correctAnswer[0], correctAnswer[1], i, currentUserName);
+
+    console.log(resultGame);
+
+    if (resultGame !== 'Correct!') {
+      break;
+    }
+    /*setQuestion(array[0]);
 
     const userAnswer = getAnswer();
     const correctAnswer = array[1];
@@ -176,9 +154,8 @@ const getBrainProgression = () => {
 
     if (statusAnswer === false) {
       break;
-    }
+    }*/
   }
-  console.log(getMessageUser(statusAnswer, currentUserName));
 };
 
 const getBrainPrime = () => {
@@ -217,14 +194,16 @@ const getBrainPrime = () => {
 //получить ответ
 //сравнить ответ и т.д.
 
-const runGame = (question, correctAnswer) => {
-  console.log(`Question: ${question}`);
+const runGame = (question, correctAnswer, countUserAnswer, currentUserName) => {
+  const resultQuetion = question.join(' ');
+  console.log(`Question: ${resultQuetion}`);
   const userAnswer = readlineSync.question('Your answer: ');
 
   if (userAnswer.toString() === correctAnswer.toString()) {
-    return 'Correct!';
+    return (countUserAnswer === correctAnswerCount) ? `Correct! \nCongratulations, ${currentUserName}!` : 'Correct!';
   }
-  return `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`;
+
+  return `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}' \nLet's try again, ${currentUserName}!`;
 };
 
 export { getBrainCalc, getBrainEven, getBrainGCD, getBrainProgression, getBrainPrime };
