@@ -11,44 +11,17 @@ import getRandomNumber from './utils.js';
 // Количество верных ответов в каждой игре
 const correctAnswerCount = 3;
 
-/*const greeting = (userName) => {
-  console.log('Welcome to the Brain Games!');
-  console.log(`Hello, ${userName}!`);
-};*/
+const runGame = (question, correctAnswer, countUserAnswer, currentUserName) => {
+  const resultQuetion = question.join(' ');
+  console.log(`Question: ${resultQuetion}`);
+  const userAnswer = readlineSync.question('Your answer: ');
 
-/*const checkAnswer = (userAnswer, correctAnswer) => {
   if (userAnswer.toString() === correctAnswer.toString()) {
-    return true;
+    return (countUserAnswer === correctAnswerCount) ? `Correct! \nCongratulations, ${currentUserName}!` : 'Correct!';
   }
 
-  return false;
-};*/
-
-/*const getMessageStatusAnswer = (statusAnswer, userAnswer, correctAnswer) => {
-  if (statusAnswer === true) {
-    return 'Correct!';
-  }
-
-  return `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'`;
-};*/
-
-/*const getMessageUser = (statusAnswer, userName) => {
-  if (statusAnswer === true) {
-    return `Congratulations, ${userName}!`;
-  }
-
-  return `Let's try again, ${userName}!`;
-};*/
-
-/*const setQuestion = (questionArray) => {
-  const resultArray = questionArray.join(' ');
-  console.log(`Question: ${resultArray}`);
-};*/
-
-/*const getAnswer = () => {
-  const answer = readlineSync.question('Your answer: ');
-  return answer;
-};*/
+  return `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}' \nLet's try again, ${currentUserName}!`;
+};
 
 const getBrainEven = () => {
   let resultGame = 0;
@@ -59,7 +32,7 @@ const getBrainEven = () => {
 
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 1; i <= correctAnswerCount; i += 1) {
-    const number = getRandomNumber(0, 30);
+    const number = [getRandomNumber(0, 30)];
     const correctAnswer = brainEven(number);
     resultGame = runGame(number, correctAnswer);
 
@@ -144,66 +117,28 @@ const getBrainProgression = () => {
     if (resultGame !== 'Correct!') {
       break;
     }
-    /*setQuestion(array[0]);
-
-    const userAnswer = getAnswer();
-    const correctAnswer = array[1];
-
-    statusAnswer = checkAnswer(userAnswer, correctAnswer);
-    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
-
-    if (statusAnswer === false) {
-      break;
-    }*/
   }
 };
 
 const getBrainPrime = () => {
-  let statusAnswer;
+  let resultGame = 0;
 
   const currentUserName = getNameUser();
-  greeting(currentUserName);
 
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
-  for (let i = 0; i < correctAnswerCount; i += 1) {
-    let correctAnswer = 'no';
-    const number = getRandomNumber(0, 40);
+  for (let i = 1; i <= correctAnswerCount; i += 1) {
+    const number = [getRandomNumber(0, 40)];
+    const correctAnswer = brainPrime(number) ? 'yes' : 'no';
 
-    const questionArray = [number];
-    setQuestion(questionArray);
+    resultGame = runGame(number, correctAnswer, i, currentUserName);
 
-    const userAnswer = getAnswer();
-    const functionAnswer = brainPrime(number);
+    console.log(resultGame);
 
-    if (functionAnswer === true) {
-      correctAnswer = 'yes';
-    }
-
-    statusAnswer = checkAnswer(userAnswer, correctAnswer);
-    console.log(getMessageStatusAnswer(statusAnswer, userAnswer, correctAnswer));
-
-    if (statusAnswer === false) {
+    if (resultGame !== 'Correct!') {
       break;
     }
   }
-  console.log(getMessageUser(statusAnswer, currentUserName));
-};
-
-//задать вопрос
-//получить ответ
-//сравнить ответ и т.д.
-
-const runGame = (question, correctAnswer, countUserAnswer, currentUserName) => {
-  const resultQuetion = question.join(' ');
-  console.log(`Question: ${resultQuetion}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-
-  if (userAnswer.toString() === correctAnswer.toString()) {
-    return (countUserAnswer === correctAnswerCount) ? `Correct! \nCongratulations, ${currentUserName}!` : 'Correct!';
-  }
-
-  return `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}' \nLet's try again, ${currentUserName}!`;
 };
 
 export { getBrainCalc, getBrainEven, getBrainGCD, getBrainProgression, getBrainPrime };
