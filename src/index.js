@@ -34,7 +34,7 @@ const getBrainEven = () => {
   for (let i = 1; i <= correctAnswerCount; i += 1) {
     const number = [getRandomNumber(0, 30)];
     const correctAnswer = brainEven(number);
-    resultGame = runGame(number, correctAnswer);
+    resultGame = runGame(number, correctAnswer, i, currentUserName);
 
     console.log(resultGame);
 
