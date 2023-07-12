@@ -78,6 +78,9 @@ const getBrainGCD = () => {
 
   const currentUserName = getNameUser();
 
+  console.log('Welcome to the Brain Games!');
+  console.log(`Hello, ${currentUserName}!`);
+
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 1; i <= correctAnswerCount; i += 1) {
     const number = getRandomNumber(1, 30);
@@ -102,6 +105,9 @@ const getBrainProgression = () => {
 
   const currentUserName = getNameUser();
 
+  console.log('Welcome to the Brain Games!');
+  console.log(`Hello, ${currentUserName}!`);
+
   console.log('What number is missing in the progression?');
   for (let i = 1; i <= correctAnswerCount; i += 1) {
     const numberFirst = getRandomNumber(0, 30);
@@ -124,7 +130,10 @@ const getBrainPrime = () => {
   let resultGame = 0;
 
   const currentUserName = getNameUser();
-
+  
+  console.log('Welcome to the Brain Games!');
+  console.log(`Hello, ${currentUserName}!`);
+  
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   for (let i = 1; i <= correctAnswerCount; i += 1) {
