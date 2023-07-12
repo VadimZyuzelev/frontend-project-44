@@ -104,7 +104,6 @@ const getBrainProgression = () => {
   let resultGame = 0;
 
   const currentUserName = getNameUser();
-
   console.log('Welcome to the Brain Games!');
   console.log(`Hello, ${currentUserName}!`);
 
@@ -130,12 +129,10 @@ const getBrainPrime = () => {
   let resultGame = 0;
 
   const currentUserName = getNameUser();
-  
   console.log('Welcome to the Brain Games!');
   console.log(`Hello, ${currentUserName}!`);
-  
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   for (let i = 1; i <= correctAnswerCount; i += 1) {
     const number = [getRandomNumber(0, 40)];
     const correctAnswer = brainPrime(number) ? 'yes' : 'no';
