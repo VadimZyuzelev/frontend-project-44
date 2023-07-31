@@ -10,7 +10,7 @@ const brainCalc = (number, numberTwo, operation) => {
     case '*':
       return number * numberTwo;
     case '-':
-      return number - numberTwo
+      return number - numberTwo;
     default:
       return 'Произошла ошибка! Попробуйте еще раз!';
   }
