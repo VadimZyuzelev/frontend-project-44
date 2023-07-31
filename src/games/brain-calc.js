@@ -4,15 +4,16 @@ const getRandomOperation = () => {
 };
 
 const brainCalc = (number, numberTwo, operation) => {
-  if (operation === '+') {
-    return number + numberTwo;
+  switch (operation) {
+    case '+':
+      return number + numberTwo;
+    case '*':
+      return number * numberTwo;
+    case '-':
+      return number - numberTwo;
+    default:
+      return 'При вычислениях произошла ошибка! Попробуйте еще раз!';
   }
-
-  if (operation === '*') {
-    return number * numberTwo;
-  }
-
-  return number - numberTwo;
 };
 
 export { getRandomOperation, brainCalc };
