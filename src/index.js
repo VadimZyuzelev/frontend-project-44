@@ -10,9 +10,14 @@ import getRandomNumber from './utils.js';
 
 const totalNumberRounds = 3;
 
+const greeting = (currentUserName) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(`Hello, ${currentUserName}!`);
+};
+
 const runGame = (question, correctAnswer, countUserAnswer, currentUserName) => {
-  const resultQuetion = question.join(' ');
-  console.log(`Question: ${resultQuetion}`);
+  const resultQuestion = question.join(' ');
+  console.log(`Question: ${resultQuestion}`);
   const userAnswer = readlineSync.question('Your answer: ');
 
   if (userAnswer.toString() === correctAnswer.toString()) {
@@ -24,10 +29,9 @@ const runGame = (question, correctAnswer, countUserAnswer, currentUserName) => {
 
 const getBrainEven = () => {
   let resultGame = 0;
-  const currentUserName = getNameUser();
 
-  console.log('Welcome to the Brain Games!');
-  console.log(`Hello, ${currentUserName}!`);
+  const currentUserName = getNameUser();
+  greeting(currentUserName);
 
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 1; i <= totalNumberRounds; i += 1) {
@@ -47,9 +51,7 @@ const getBrainCalc = () => {
   let resultGame = 0;
 
   const currentUserName = getNameUser();
-
-  console.log('Welcome to the Brain Games!');
-  console.log(`Hello, ${currentUserName}!`);
+  greeting(currentUserName);
 
   console.log('What is the result of the expression?');
 
@@ -76,9 +78,7 @@ const getBrainGCD = () => {
   let resultGame = 0;
 
   const currentUserName = getNameUser();
-
-  console.log('Welcome to the Brain Games!');
-  console.log(`Hello, ${currentUserName}!`);
+  greeting(currentUserName);
 
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 1; i <= totalNumberRounds; i += 1) {
@@ -103,8 +103,7 @@ const getBrainProgression = () => {
   let resultGame = 0;
 
   const currentUserName = getNameUser();
-  console.log('Welcome to the Brain Games!');
-  console.log(`Hello, ${currentUserName}!`);
+  greeting(currentUserName);
 
   console.log('What number is missing in the progression?');
   for (let i = 1; i <= totalNumberRounds; i += 1) {
@@ -128,8 +127,7 @@ const getBrainPrime = () => {
   let resultGame = 0;
 
   const currentUserName = getNameUser();
-  console.log('Welcome to the Brain Games!');
-  console.log(`Hello, ${currentUserName}!`);
+  greeting(currentUserName);
 
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   for (let i = 1; i <= totalNumberRounds; i += 1) {
