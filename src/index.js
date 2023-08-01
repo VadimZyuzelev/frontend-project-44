@@ -45,7 +45,7 @@ const getBrainEven = () => {
 
 const getBrainCalc = () => {
   let resultGame = 0;
-  
+
   const currentUserName = getNameUser();
   console.log('Welcome to the Brain Games!');
   console.log(`Hello, ${currentUserName}!`);
