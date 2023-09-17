@@ -1,3 +1,5 @@
+import getRandomNumber from '../utils.js';
+
 const brainGCD = (num, numSecond) => {
   let numberFirst = num;
   let numberSecond = numSecond;
@@ -11,4 +13,14 @@ const brainGCD = (num, numSecond) => {
   return numberFirst;
 };
 
-export default brainGCD;
+const getBrainGCD = () => {
+  const number = getRandomNumber(1, 30);
+  const numberTwo = getRandomNumber(1, 20);
+
+  const questionArray = [number, numberTwo];
+  const correctAnswer = brainGCD(number, numberTwo);
+
+  return [questionArray, correctAnswer];
+};
+
+export default getBrainGCD;

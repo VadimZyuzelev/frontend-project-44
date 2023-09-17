@@ -1,3 +1,5 @@
+import getRandomNumber from '../utils.js';
+
 const brainProgression = (numFirst, numCount, step) => {
   const arrayProgression = [[], []];
   let randomIndexElement = 0;
@@ -20,4 +22,16 @@ const brainProgression = (numFirst, numCount, step) => {
   return arrayProgression;
 };
 
-export default brainProgression;
+const getBrainProgression = () => {
+  const numberFirst = getRandomNumber(0, 30);
+  const stepProgression = getRandomNumber(2, 20);
+  const numberCount = getRandomNumber(5, 30);
+
+  const resultProgression = brainProgression(numberFirst, numberCount, stepProgression);
+  const questionArray = resultProgression[0];
+  const correctAnswer = resultProgression[1];
+
+  return [questionArray, correctAnswer];
+};
+
+export default getBrainProgression;

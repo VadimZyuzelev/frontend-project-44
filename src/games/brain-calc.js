@@ -1,3 +1,5 @@
+import getRandomNumber from '../utils.js';
+
 const getRandomOperation = () => {
   const array = ['+', '*', '-'];
   return array[Math.floor(Math.random() * array.length)];
@@ -16,4 +18,15 @@ const brainCalc = (number, numberTwo, operation) => {
   }
 };
 
-export { getRandomOperation, brainCalc };
+const getBrainCalc = () => {
+  const number = getRandomNumber(0, 20);
+  const numberTwo = getRandomNumber(0, 30);
+  const operation = getRandomOperation();
+
+  const questionArray = [number, operation, numberTwo];
+  const correctAnswer = brainCalc(number, numberTwo, operation);
+
+  return [questionArray, correctAnswer];
+};
+
+export default getBrainCalc;

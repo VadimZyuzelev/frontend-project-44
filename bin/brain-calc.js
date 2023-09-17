@@ -1,4 +1,6 @@
 #!/usr/bin/env node
-import { getBrainCalc } from '../src/index.js';
+import runGame from '../src/index.js';
+import getBrainCalc from '../src/games/brain-calc.js';
 
-getBrainCalc();
+const message = 'What is the result of the expression?';
+runGame(message, getBrainCalc);
