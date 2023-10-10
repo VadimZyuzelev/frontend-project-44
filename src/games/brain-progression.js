@@ -1,37 +1,25 @@
 import getRandomNumber from '../utils.js';
 
-const brainProgression = (numFirst, numCount, step) => {
-  const arrayProgression = [[], []];
-  let randomIndexElement = 0;
-  let numLast = 0;
-
-  numLast = numFirst + step * (numCount - 1);
+const progression = () => {
+  const arrayProgression = [];
+  const lengthArray = getRandomNumber(5, 15);
+  const numFirst = getRandomNumber(0, 30);
+  const step = getRandomNumber(0, 20);
+  const numLast = numFirst + step * (lengthArray - 1);
 
   for (let i = numFirst; i <= numLast; i += step) {
-    arrayProgression[0].push(i);
+    arrayProgression.push(i);
   }
 
-  randomIndexElement = Math.floor(Math.random() * arrayProgression[0].length);
-
-  for (let i = 0; i < arrayProgression[0].length; i += 1) {
-    if (i === randomIndexElement) {
-      arrayProgression[1] = arrayProgression[0][i];
-      arrayProgression[0][i] = '..';
-    }
-  }
   return arrayProgression;
 };
 
-const getBrainProgression = () => {
-  const numberFirst = getRandomNumber(0, 30);
-  const stepProgression = getRandomNumber(2, 20);
-  const numberCount = getRandomNumber(5, 30);
+const getProgression = () => {
+  const questionArray = progression();
+  const randomIndex = getRandomNumber(0, questionArray.length - 1);
+  questionArray[randomIndex] = '..';
 
-  const resultProgression = brainProgression(numberFirst, numberCount, stepProgression);
-  const questionArray = resultProgression[0];
-  const correctAnswer = resultProgression[1];
-
-  return [questionArray, correctAnswer];
+  return [questionArray.join(' '), randomIndex];
 };
 
-export default getBrainProgression;
+export default getProgression;

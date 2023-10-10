@@ -20,7 +20,7 @@ const getBrainGCD = () => {
   const questionArray = [number, numberTwo];
   const correctAnswer = brainGCD(number, numberTwo);
 
-  return [questionArray, correctAnswer];
+  return [questionArray.join(' '), correctAnswer];
 };
 
 export default getBrainGCD;
