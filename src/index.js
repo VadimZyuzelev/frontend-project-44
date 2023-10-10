@@ -11,9 +11,8 @@ const runGame = (message, game) => {
 
   for (let i = 0; i < totalNumberRounds; i += 1) {
     const [questionArray, correctAnswer] = game();
-    const resultQuestion = questionArray.join(' ');
 
-    console.log(`Question: ${resultQuestion}`);
+    console.log(`Question: ${questionArray}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer.toString() === correctAnswer.toString()) {

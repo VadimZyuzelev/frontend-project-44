@@ -2,7 +2,7 @@ import getRandomNumber from '../utils.js';
 
 const getRandomOperation = () => {
   const array = ['+', '*', '-'];
-  return array[Math.floor(Math.random() * array.length)];
+  return array[getRandomNumber(0, array.length - 1)];
 };
 
 const brainCalc = (number, numberTwo, operation) => {
@@ -23,7 +23,7 @@ const getBrainCalc = () => {
   const numberTwo = getRandomNumber(0, 30);
   const operation = getRandomOperation();
 
-  const questionArray = [number, operation, numberTwo];
+  const questionArray = [number, operation, numberTwo].join(' ');
   const correctAnswer = brainCalc(number, numberTwo, operation);
 
   return [questionArray, correctAnswer];
